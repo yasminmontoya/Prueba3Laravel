@@ -15,6 +15,8 @@
                     @endif
 
                     <div class="container">
+                    <form method="POST" action="{{ route('home.show') }}">
+                    @csrf
                         <div class="row">
                             <div class="col">
                                 <select class="custom-select" name="origin">
@@ -43,17 +45,15 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <input type="date" name="date" min="2020-12-20" value="" required="required" class="form-control">  
+                                <input type="date" name="date" min="<?php echo date("Y-m-d");?>" value="" required="required" class="form-control">  
                             </div>
                         </div>
                         <div class="row justify-content-center mt-4">
                             <div class="col-3">
-                                <form method="POST" action="{{ route('home.show') }}">
-                                    @csrf
-                                    <button type="submit" class="btn btn-primary btn-sm">Buscar Vuelos</button>
-                                </form>
+                                <button type="submit" class="btn btn-primary btn-sm">Buscar Vuelos</button>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
